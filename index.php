@@ -22,20 +22,20 @@ if($sql->rowCount() > 0){
     <div id="to_do">
         <h1>To Do</h1>
 
-        <form action="" class="to-do-form">
+        <form action="actions/create.php" method="POST" class="to-do-form">
             <input type="text" name="description" placeholder="Task" required>
             <button type="submit" class="form-button">
                 <i class="fa-solid fa-plus"></i> 
             </button>
         </form>
         <div id="tasks">
-            <?php foreach($tasks as $task): ?>
+            <?php foreach($tasks as $task): //foreach retornando os dados do db ?> 
             <div class="task">
                 <input 
                 type="checkbox" 
                 name="progress" 
                 class="progress"
-                <?= $task['completed'] ? 'checked' : '' ?>
+                <?= $task['completed'] ? 'checked' : '' //usando o foreach p acessar cada dado especifico ?>
                 >
             
             <p class="task-description">
@@ -46,7 +46,7 @@ if($sql->rowCount() > 0){
                     <i class="fa-regular fa-pen-to-square"></i>
                 </a>
 
-                <a href="#" class="action-button delete-button">
+                <a href="actions/delete.php?id=<?= $task['id'] ?>" class="action-button delete-button">
                     <i class="fa-regular fa-trash-can"></i>
                 </a>
             </div>
