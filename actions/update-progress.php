@@ -3,7 +3,7 @@
 require_once('../database/conn.php');
 
 $id = filter_input(INPUT_POST, 'id');
-$completed = filter_input(INPUT_POST, 'completed', FILTER_VALIDATE_BOOLEAN);
+$completed = filter_input(INPUT_POST, 'completed', FILTER_VALIDATE_BOOLEAN); //alterando o valor do completed pelo checkbox
 
 if ($id !== null && $completed !== null) {
     $sql = $pdo->prepare("UPDATE task SET completed = :completed WHERE id = :id");
