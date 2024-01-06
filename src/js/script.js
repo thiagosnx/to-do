@@ -14,7 +14,7 @@ $(document).ready(function () {
         //qnd clico no botao de edit, ele adiciona a classe 'hidden' aos elementos, ou seja
         //adiciona a classe com display none, ou seja, faz ele sumir e a classe de edit-task aparecer, removendo o hidden dela
      });
-     $('.progress').on('click', function(){
+     $('.progress').on('click', function(){ //adicionando e remvoendo risco no nome ao clicar no checkbox
         if($(this).is(':checked')){
             $(this).addClass('done');
         }else{
@@ -22,9 +22,11 @@ $(document).ready(function () {
         }
      });
 
-     $('.progress').on('change', function () {
+     $('.progress').on('change', function () { //enviando o valor do checkbox para o db como completed true or false
         const id = $(this).data('task-id');
-        const completed = $(this).is(':checked') ? 1 : 0;
+        const completed = $(this).is(':checked');
+
+
         $.ajax({
             url: 'actions/update-progress.php',
             method: 'POST',

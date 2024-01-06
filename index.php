@@ -1,9 +1,9 @@
 <?php 
 require_once('database/conn.php'); //chamando a conexao
 
-$tasks = [];
+$tasks = []; //definindo as tasks como um array
 
-$sql = $pdo->query("SELECT * FROM task ORDER BY id ASC");
+$sql = $pdo->query("SELECT * FROM task ORDER BY id DESC"); // pegando os dados do db
 
 if($sql->rowCount() > 0){
     $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
