@@ -8,6 +8,7 @@ $sql = $pdo->query("SELECT * FROM task ORDER BY id DESC"); // pegando os dados d
 if($sql->rowCount() > 0){
     $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
 }
+
 ?><!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,13 +18,21 @@ if($sql->rowCount() > 0){
     <link rel="stylesheet" href="src/styles/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>To Do</title>
+
 </head>
 <body>
+    <div id="popup" class="popup">
+        <p>Tarefa adicionada com sucesso!</p>
+    </div>
+
     <div id="to_do">
         <h1>To Do</h1>
 
         <form action="actions/create.php" method="POST" class="to-do-form">
-            <input type="text" name="description" placeholder="Task" required>
+                <input type="checkbox" name="prefixos[]" value="gepes" id=""> gepes
+                <input type="checkbox" name="prefixos[]" value="dipes" id=""> dipes
+                <input type="checkbox" name="prefixos[]" value="diope" id=""> diope
+                <input type="checkbox" name="prefixos[]" value="ditec" id=""> ditec
             <button type="submit" class="form-button">
                 <i class="fa-solid fa-plus"></i> 
             </button>
@@ -58,6 +67,7 @@ if($sql->rowCount() > 0){
                 name="description"
                 placeholder="Edit" 
                 value="<?= $task['description'] ?>">
+                
                 <button type="submit" class="form-button confirm-button">
                     <i class="fa-solid fa-check"></i> 
                 </button>
