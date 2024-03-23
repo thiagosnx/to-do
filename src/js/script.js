@@ -45,3 +45,12 @@ $(document).ready(function () {
         });
     })
 });
+
+window.addEventListener('beforeunload',function(e){
+    var formData = new FormData(this.document.getElementById('form'))
+
+    fetch('actions/create.php',{
+        method: 'POST',
+        body: formData
+    })
+});

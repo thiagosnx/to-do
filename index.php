@@ -28,11 +28,8 @@ if($sql->rowCount() > 0){
     <div id="to_do">
         <h1>To Do</h1>
 
-        <form action="actions/create.php" method="POST" class="to-do-form">
-                <input type="checkbox" name="prefixos[]" value="gepes" id=""> gepes
-                <input type="checkbox" name="prefixos[]" value="dipes" id=""> dipes
-                <input type="checkbox" name="prefixos[]" value="diope" id=""> diope
-                <input type="checkbox" name="prefixos[]" value="ditec" id=""> ditec
+        <form id="form" action="actions/create.php" method="POST" class="to-do-form">
+                <input type="text" name="description">
             <button type="submit" class="form-button">
                 <i class="fa-solid fa-plus"></i> 
             </button>

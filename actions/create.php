@@ -4,15 +4,10 @@ require_once('../database/conn.php');
 
 $description = filter_input(INPUT_POST, 'description');
 
-$prefixos = $_POST['prefixos'];
-
-
-
-if($prefixos){
-    $prefixosstr = implode(', ', $prefixos);
+if($description){
 
     $sql = $pdo->prepare("INSERT INTO task (description) VALUES (:description)");
-    $sql->bindValue(':description', $prefixosstr);
+    $sql->bindValue(':description', $description);
     $sql->execute();
 
     header('Location: ../index.php');
